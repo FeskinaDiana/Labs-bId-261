@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(void) {
+    setlocale(LC_ALL, "Russian");
+    system("chcp 1251 > nul");
+
+    int N;
+    puts("Введите число N (N < 1000):");
+    scanf("%d", &N);
+    getchar();
+
+    if (N < 0 || N >= 1000) {
+        puts("Ошибка: число должно быть от 0 до 999");
+        getchar();
+        return 1;
+    }
+
+    int hundreds = N / 100;
+    int tens = (N / 10) % 10;
+    int units = N % 10;
+
+    if (hundreds == 5 || tens == 5 || units == 5)
+        printf("В числе %d есть цифра 5\n", N);
+    else
+        printf("В числе %d нет цифры 5\n", N);
+
+    getchar();
+    return 0;
+}

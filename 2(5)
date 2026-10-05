@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(void) {
+    setlocale(LC_ALL, "Russian");
+    system("chcp 1251 > nul");
+
+    double x;
+    puts("Введите x:");
+    scanf("%lf", &x);
+    getchar();
+
+    // Контрольный пример:
+    // x = 5.0  -> F = 6.000000
+    // x = 8.0  -> F = 0.016667
+    printf("F(%.2f) = %.6f\n", x,
+           (x <= 7.0) ? (3.0 * x - 9.0) : (1.0 / (x * x - 4.0)));
+
+    getchar();
+    return 0;
+}
